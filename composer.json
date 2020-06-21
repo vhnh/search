@@ -1,0 +1,38 @@
+{
+    "name": "vhnh/search",
+    "license": "MIT",
+    "description": "Searching models by attributes",
+    "homepage": "http://github.com/vhnh/search",
+    "authors": [
+        {
+            "name": "Tobias Thaden",
+            "email": "hello@tobiasthaden.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/vhnh/search/issues",
+        "source": "https://github.com/vhnh/search"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Vhnh\\Search\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vhnh\\Search\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.2.5"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.3"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    }
+}
