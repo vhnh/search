@@ -33,6 +33,18 @@ class SearchTest extends \Orchestra\Testbench\TestCase
     }
 
     /** @test */
+    public function it_creates_a_result()
+    {
+        $model = User::create(['name' => 'John Doe', 'username' => 'johnny'])->fresh();
+        $result = User::search('john', 'name')[0];
+    
+        $this->assertEquals($model, $result->item());
+        $this->assertEquals($model->name, $result->name);
+        $this->assertEquals($model->toArray(), $result->toArray());
+        $this->assertEquals(User::class, $result->originalType());
+    }
+
+    /** @test */
     public function it_searches_in_multiple_attributes()
     {
         User::create(['name' => 'John Doe', 'username' => 'johnny']);
