@@ -33,6 +33,17 @@ class SearchTest extends \Orchestra\Testbench\TestCase
     }
 
     /** @test */
+    public function it_allows_appending_the_query()
+    {
+        User::create(['name' => 'John Doe', 'username' => 'johndoe']);
+        User::create(['name' => 'Jane Doe', 'username' => 'janedoe']);
+        
+        $this->assertCount(1, User::search('doe', 'name', function ($query) {
+            return $query->limit(1)->get();
+        }));
+    }
+
+    /** @test */
     public function it_creates_a_result()
     {
         $model = User::create(['name' => 'John Doe', 'username' => 'johnny'])->fresh();
